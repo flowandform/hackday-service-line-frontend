@@ -1,0 +1,13 @@
+// @import '@blueprintjs/core/lib/scss/variables';
+@import './styles/shared.scss';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.App {
+  color: #ffffff;
+  padding: 0;
+}
