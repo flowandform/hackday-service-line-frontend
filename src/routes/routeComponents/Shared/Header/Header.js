@@ -54,6 +54,12 @@ function Header() {
           >
             Sign in
           </Button>
+          <Button
+            color="inherit"
+            onClick={() => router.transitionTo(router.routes.register)}
+          >
+            Sign up
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
