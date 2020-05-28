@@ -2,6 +2,9 @@
 
 import SharedHeader from './routeComponents/Shared/Header/Header';
 import Shared404 from './routeComponents/Shared/Page404/Page404';
+import PublicServices from './routeComponents/Public/Services/Services';
+import PublicRegister from './routeComponents/Public/Register/Register';
+import PublicLogin from './routeComponents/Public/Login/Login';
 
 import PublicLayout from './layouts/Public/Public';
 import AuthenticatedLayout from './layouts/Authenticated/Authenticated';
@@ -45,11 +48,27 @@ const layoutConfig = [
     },
     routes: [
       {
-        key: 'login',
+        key: 'services',
         path: '/',
         exact: true,
         components: {
-          main: Shared404,
+          main: PublicServices,
+        },
+      },
+      {
+        key: 'login',
+        path: '/login',
+        exact: true,
+        components: {
+          main: PublicLogin,
+        },
+      },
+      {
+        key: 'register',
+        path: '/register',
+        exact: true,
+        components: {
+          main: PublicRegister,
         },
       },
       {

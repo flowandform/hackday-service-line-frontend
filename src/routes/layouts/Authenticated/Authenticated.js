@@ -18,14 +18,16 @@ function Authenticated({ defaultComponents, routes }) {
     <div>
       <header>
         <Switch>
-          {routes.map(route => (
-            <Route
-              key={route.key}
-              exact={route.exact}
-              path={route.path}
-              component={route.components.header || defaultComponents.header}
-            />
-          ))}
+          {routes.map(route => {
+            return (
+              <Route
+                key={route.key}
+                exact={route.exact}
+                path={route.path}
+                component={route.components.header || defaultComponents.header}
+              />
+            );
+          })}
         </Switch>
       </header>
       <main>

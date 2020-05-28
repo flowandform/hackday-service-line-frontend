@@ -82,7 +82,7 @@ const getObjectFromFields = (session, modelItem, fields) => {
 
 // ref is used to paste the whole model reference, any other specific use will just get that field
 // example use
-// createSimpleSelector('serviceRequest', [
+// createSimpleSelector('ServiceRequest', [
 //   'ref',
 //   'author.ref',
 //   'author.person.ref',

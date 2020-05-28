@@ -72,7 +72,7 @@ module.exports = {
     }),
     react({
       html: {
-        title: 'Rentaroo',
+        title: 'Service Line',
       },
       style: {
         test: /\.(css|sass|scss)$/,
