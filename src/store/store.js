@@ -21,6 +21,7 @@ const rootReducer = combineReducers({
   ...branches,
   api: apiReducers.api,
   auth: persistReducer(persistConfig, apiReducers.auth),
+  // auth: apiReducers.auth,
 });
 
 const middleware = [thunk];

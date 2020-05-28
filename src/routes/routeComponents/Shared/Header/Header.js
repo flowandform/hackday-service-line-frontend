@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useRouter } from 'router';
-
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    cursor: 'pointer',
     flexGrow: 1,
   },
 }));
@@ -26,7 +27,8 @@ const useStyles = makeStyles(theme => ({
 function Header() {
   const classes = useStyles();
   const router = useRouter();
-
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  console.log(router);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -37,7 +39,7 @@ function Header() {
             color="inherit"
             aria-label="menu"
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Typography
             variant="h6"
@@ -48,18 +50,29 @@ function Header() {
           >
             Service Line
           </Typography>
-          <Button
-            color="inherit"
-            onClick={() => router.transitionTo(router.routes.login)}
-          >
-            Sign in
-          </Button>
-          <Button
-            color="inherit"
-            onClick={() => router.transitionTo(router.routes.register)}
-          >
-            Sign up
-          </Button>
+          {!isLoggedIn ? (
+            <>
+              <Button
+                color="inherit"
+                onClick={() => router.transitionTo(router.routes.login)}
+              >
+                Sign in
+              </Button>
+              <Button
+                color="inherit"
+                onClick={() => router.transitionTo(router.routes.register)}
+              >
+                Sign up
+              </Button>
+            </>
+          ) : (
+            <Button
+              color="inherit"
+              onClick={() => router.transitionTo(router.routes.logout)}
+            >
+              Log out
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </div>

@@ -1,5 +1,5 @@
 const initAuthState = {
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 export function auth(state = initAuthState, action) {

@@ -8,6 +8,7 @@ import PublicLogin from './routeComponents/Public/Login/Login';
 
 import PublicLayout from './layouts/Public/Public';
 import AuthenticatedLayout from './layouts/Authenticated/Authenticated';
+import Logout from './routeComponents/Authenticated/Logout';
 
 const authPath = 'auth';
 
@@ -29,6 +30,14 @@ const layoutConfig = [
         exact: true,
         components: {
           main: Shared404,
+        },
+      },
+      {
+        key: 'logout',
+        path: `/${authPath}/logout`,
+        exact: true,
+        components: {
+          main: Logout,
         },
       },
       {

@@ -19,6 +19,7 @@ function Authenticated({ defaultComponents, routes }) {
       <header>
         <Switch>
           {routes.map(route => {
+            console.log(route);
             return (
               <Route
                 key={route.key}

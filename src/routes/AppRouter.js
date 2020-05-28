@@ -26,7 +26,7 @@ function AppRouter({ history }) {
         }) !== null
       );
     });
-
+    console.log(route, layout, history);
     if (route) {
       const routeResult = matchPath(history.location.pathname, {
         path: route.path,
