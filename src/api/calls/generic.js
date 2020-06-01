@@ -33,7 +33,7 @@ export function index({ api, promise }, modelName, opts) {
         });
 
         if (body?.data?.length) {
-          promise.resolve(body.data.map(item => item.id));
+          promise.resolve(body);
         }
       },
       onError(e) {

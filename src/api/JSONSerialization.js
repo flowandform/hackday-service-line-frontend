@@ -40,6 +40,7 @@ function normalize(data) {
     attrAndRel = {
       ...attrAndRel,
       ...data.attributes,
+      ...data.meta,
     };
   }
 

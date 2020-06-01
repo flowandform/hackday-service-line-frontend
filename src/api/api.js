@@ -98,7 +98,7 @@ const api = {
   deserialize(response) {
     return deserialize(response);
   },
-  apiCall(stateOpts, url, fetchOpts, actions) {
+  apiCall(stateOpts, url, fetchOpts, actions, skipSerialization) {
     const act = { ...apiCallActions, ...actions };
     apiUUIDCounter += 1;
     const uuid = apiUUIDCounter;
@@ -125,7 +125,7 @@ const api = {
 
           return res;
         })
-        .then(body => this.deserialize(body))
+        .then(body => (skipSerialization ? body : this.deserialize(body)))
         .then(body => {
           dispatch(
             successAction(

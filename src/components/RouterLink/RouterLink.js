@@ -6,6 +6,7 @@ function RouterLink({ to, params, children }) {
   const router = useRouter();
   return (
     <a
+      style={{ textDecoration: 'none' }}
       onClick={e => {
         e.preventDefault();
         router.transitionTo(to, ...params);

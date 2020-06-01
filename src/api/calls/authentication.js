@@ -7,10 +7,12 @@ import {
 } from '../actions';
 
 export function authenticate({ api, promise }, model, opts) {
+  console.log('authenticate', { api, promise }, model, opts);
   const o = { ...api.getOptions(), ...opts };
   const fo = { ...o.fetchOptions, method: 'POST' };
-  fo.body = api.serialize(model);
-
+  // fo.body = api.serialize(model);
+  fo.body = JSON.stringify(model);
+  console.log(fo);
   return api.apiCall(
     {
       methodName: 'post',
@@ -20,15 +22,17 @@ export function authenticate({ api, promise }, model, opts) {
     fo,
     {
       onSuccess(body, dispatch) {
-        api.setAuthorizationToken(body.data.access);
-        dispatch(authLogInAction(body.data.access, body.data.refresh));
+        console.log(body);
+        api.setAuthorizationToken(body.jwt);
+        dispatch(authLogInAction(body.jwt, ''));
 
         promise.resolve();
       },
       onError(e) {
         promise.reject(e);
       },
-    }
+    },
+    true
   );
 }
 

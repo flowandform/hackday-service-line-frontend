@@ -72,7 +72,7 @@ module.exports = {
     }),
     react({
       html: {
-        title: 'Service Line',
+        title: 'Serviceline',
       },
       style: {
         test: /\.(css|sass|scss)$/,
@@ -126,7 +126,7 @@ module.exports = {
           __CONF__: JSON.stringify({
             reduxLogger: false,
             api: {
-              baseUrl: 'http://localhost:8000/',
+              baseUrl: 'http://localhost:3000/api/v1',
             },
           }),
         },

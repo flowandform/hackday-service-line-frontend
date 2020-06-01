@@ -1,4 +1,8 @@
 import React from 'react';
+
+import { useRouter } from 'router';
+import { RouterLink } from 'components';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -48,6 +52,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Register() {
   const classes = useStyles();
+  const router = useRouter();
 
   return (
     <Container component="main" maxWidth="xs">
@@ -125,9 +130,11 @@ export default function Register() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
+              <RouterLink to={router.routes.login}>
+                <Link href="#" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </RouterLink>
             </Grid>
           </Grid>
         </form>

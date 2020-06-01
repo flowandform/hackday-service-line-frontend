@@ -21,7 +21,7 @@ export default function() {
 
   Api.setOptions({
     hostUrl: conf.api.baseUrl,
-    authenticationPath: 'token',
+    authenticationPath: 'sessions',
     accountPath: 'accounts/get_my_account',
     accountConfirmPath: 'accounts/confirm_registration',
   });

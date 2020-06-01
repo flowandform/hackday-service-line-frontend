@@ -1,3 +1,3 @@
 import { createSimpleSelector } from 'orm';
 
-export const accounts = createSimpleSelector('Service', ['ref']);
+export const services = createSimpleSelector('Service', ['ref']);

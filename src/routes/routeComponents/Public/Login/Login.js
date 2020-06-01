@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { useRouter } from 'router';
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,13 +15,16 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import * as api from 'api';
+
+const { useApi } = api;
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Want to teach?
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -61,6 +67,15 @@ const useStyles = makeStyles(theme => ({
 
 export default function Login() {
   const classes = useStyles();
+  const router = useRouter();
+  const Api = useApi();
+
+  const login = () => {
+    Api.authenticate({
+      email: 'admin@flownform.com',
+      password: 'flownform1',
+    }).then(() => router.transitionTo(router.routes.services));
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -74,7 +89,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <div className={classes.form} noValidate>
             <TextField
               variant="outlined"
               margin="normal"
@@ -107,6 +122,7 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={login}
             >
               Sign In
             </Button>
@@ -125,7 +141,7 @@ export default function Login() {
             <Box mt={5}>
               <Copyright />
             </Box>
-          </form>
+          </div>
         </div>
       </Grid>
     </Grid>

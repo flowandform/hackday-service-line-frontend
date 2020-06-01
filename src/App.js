@@ -15,11 +15,11 @@ function App() {
 
   return (
     <ReduxProvider store={store}>
-      <PersistGate loading={<div>Loading</div>} persistor={persistor}>
-        <Router history={history}>
-          <AppRouter history={history} />
-        </Router>
-      </PersistGate>
+      {/* <PersistGate loading={<div>Loading</div>} persistor={persistor}> */}
+      <Router history={history}>
+        <AppRouter history={history} />
+      </Router>
+      {/* </PersistGate> */}
     </ReduxProvider>
   );
 }

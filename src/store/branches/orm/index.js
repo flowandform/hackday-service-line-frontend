@@ -1,6 +1,8 @@
 import ormLib from 'orm';
 
-const reducers = [];
+import serviceReducer from './service';
+
+const reducers = [serviceReducer];
 
 export function orm(dbState, action) {
   if (action.type === 'AUTH_LOG_OUT') {

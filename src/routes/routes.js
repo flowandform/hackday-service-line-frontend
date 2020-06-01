@@ -5,6 +5,7 @@ import Shared404 from './routeComponents/Shared/Page404/Page404';
 import PublicServices from './routeComponents/Public/Services/Services';
 import PublicRegister from './routeComponents/Public/Register/Register';
 import PublicLogin from './routeComponents/Public/Login/Login';
+import PublicDetails from './routeComponents/Public/Details/Details';
 
 import PublicLayout from './layouts/Public/Public';
 import AuthenticatedLayout from './layouts/Authenticated/Authenticated';
@@ -78,6 +79,14 @@ const layoutConfig = [
         exact: true,
         components: {
           main: PublicRegister,
+        },
+      },
+      {
+        key: 'details',
+        path: '/service/:id',
+        exact: true,
+        components: {
+          main: PublicDetails,
         },
       },
       {
